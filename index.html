@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Client</title>   
+
+    <!-- add the cdn for socket.io and link to javascript file -->
+    <script src="https://cdn.socket.io/4.6.0/socket.io.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script defer src="client.js"></script> 
+
+    <style>
+
+        .msg {
+            margin-top: 5px;
+        }
+        .bang {
+            width: 100px;
+        }
+        #recieveBang {
+            pointer-events: none;
+        }
+        #sendBangBtn:active {
+            background-color: blue;
+        }
+
+        #clientInfoContainer {
+         background-color: lightblue;
+        }
+
+        @media screen and (max-width: 500px) {
+            .bang {
+                width: 50%;
+                font-size: 1.5rem;    
+            }
+            #recieveBang {
+                float: left;
+            }
+            #inputBox {
+                width: 100%;
+                box-sizing: border-box;
+                font-size: 1rem;
+            }
+            #sendBtn {
+                width: 50%;
+                float: right;
+                font-size: 1rem;
+            }
+        }
+
+    </style>
+
+</head>
+<body>
+    <div id="clientInfoContainer"> 
+    <p id="loadingMessage">Loading...</p>
+    </div>
+    <button id="preloadAudioBtn" style="visibility: hidden;">Continue...</button>
+
+    <div id="containerb" style="visibility: hidden;"> 
+        <input id="recieveBang" class="bang" type="button" value="recieve bang">
+        <input id="sendBangBtn" class="bang" type="button" value="send bang">
+
+        <div id="chatMessage" class="msg"></div>
+        
+        <input id="inputBox" class="msg" type="text" placeholder="message">
+        <input id="sendBtn" class="msg" type="button" value="Send">
+    </div>
+
+
+
+    <div class = "wrapper">
+    <!-- <p class="info">Based on <a href="http://adaweb.walkerart.org/project/holzer/cgi/pcb.cgi" target="_blank">"Please Change Beliefs"</a> by Jenny Holzer </p> -->
+    <h2>Select a truism</h2>
+    <div class="wrapper">
+        <p class="info">Based on <a href="http://adaweb.walkerart.org/project/holzer/cgi/pcb.cgi" target="_blank">"Please Change Beliefs"</a> by Jenny Holzer </p>
+        <h2>Select a truism</h2>
+        <form id="form">
+            <!-- drop down menu populated with myTruisms -->
+            <select id="selectTruisms" size="15"></select>
+            <p><input type="text" id="textBox" name="truism" required/></p>
+            <p><input type="submit" name="submit" value="SUBMIT" id="buttonS" /> </p>
+        </form>
+        <div id="resultDiv" style="background:rgba(149, 0, 153,0.75);color:white"> </div>
+        <div id="result"><h2 id="sub" >Submissions</h2><div class="wrapper-flex"></div> </div>
+    </div>
+    <div id="resultDiv" style="background:rgba(149, 0, 153,0.75);color:white"> </div>
+
+    <div id = "result"><h2 id="sub" >Submissions</h2><div class = "wrapper-flex"></div> </div>
+    </div>
+</div>
+
+
+   
+    <!-- <button id="find-me">Show my location</button><br />
+<p id="status"></p> -->
+<!-- <a id="map-link" target="_blank"></a> -->
+
+    
+</body>
+</html>
